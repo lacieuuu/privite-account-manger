@@ -35,7 +35,8 @@
 ### 第二阶段：部署
  1. **运行脚本**：
  * Windows 打开 powershell/cmd，安卓手机打开termux，执行以下命令：
-```bash <(curl -s https://raw.githubusercontent.com/lacieuuu/private-account-manager/main/deploy.sh)
+```bash
+<(curl -s https://raw.githubusercontent.com/lacieuuu/private-account-manager/main/deploy.sh)
 
 ```
  2. **完成配置**
