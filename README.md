@@ -3,9 +3,8 @@
 
 # 使用步骤
 ### 第一阶段：准备工作
-在开始部署前，请在手机或电脑上准备好以下参数并完成数据库初始化：
  1. **Supabase Project URL** 与 **anon public Key**（数据存储凭证）
- * 访问 Supabase 官网 注册账号并创建一个新项目（Project）。
+ * 访问 https://supabase.com/ 注册账号并创建一个新项目（Project）。
  * 进入项目仪表盘，点击右上角导航菜单图标，找到并点击 **Project Settings**，分别在 **API Keys**和**Data Api**复制你的**anon public key** 和 **Project URL**。
  2. **初始化数据表 (核心步骤)**
  * 在 Supabase 右上角导航栏点击 **SQL Editor**（>_ 符号图标），点击 New Query。
@@ -23,7 +22,7 @@
  * 确保页面上方显示是 **Disable RLS**（关闭权限控制，确保网页端可正常读写数据）。
  3. **Vercel Token**（免登录部署令牌）
  * 注册登录vercel官网 
- * 进入 https://vercel.com/account/tokens页面。
+ * 进入 https://vercel.com/account/tokens 页面。
  * 创建并复制token 令牌，用于在终端执行免登录的自动化部署。
 ### 第二阶段：环境搭建
 #### 电脑端 (Windows / Mac / Linux)
