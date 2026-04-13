@@ -38,6 +38,8 @@
    ```powershell
    Invoke-RestMethod -Uri "[https://raw.githubusercontent.com/lacieuuu/private-account-manager/main/deploy.ps1](https://raw.githubusercontent.com/lacieuuu/private-account-manager/main/deploy.ps1)" | Invoke-Expression
    
+   ```
+
  *  安卓手机打开termux，执行以下命令：
    ```bash
    <(curl -s [https://raw.githubusercontent.com/lacieuuu/private-account-manager/main/deploy.sh](https://raw.githubusercontent.com/lacieuuu/private-account-manager/main/deploy.sh))
