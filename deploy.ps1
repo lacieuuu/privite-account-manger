@@ -55,8 +55,8 @@ $content = $content.Replace('REPLACE_WITH_URL', $user_url).Replace('REPLACE_WITH
 
 Write-Host "☁️ 正在生成唯一随机网址并推送到 Vercel..." -ForegroundColor Yellow
 
-# 生成 5 位随机后缀防止域名冲突
-$Suffix = -join ((97..122) + (48..57) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+# 生成 6 位随机后缀防止域名冲突
+$Suffix = -join ((97..122) + (48..57) | Get-Random -Count 6 | ForEach-Object {[char]$_})
 $UniqueName = "private-account-manager-$Suffix"
 
 vercel --prod --yes --name "$UniqueName" --token="$user_token"
