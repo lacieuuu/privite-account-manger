@@ -212,6 +212,20 @@ th:last-child { border-top-right-radius: 7px; }
 @media (max-width: 600px) {
  body { padding: 10px; }
  .card { padding: 15px; }
+ 
+ /* ★ 1. 拯救被挤压的“搜索框”：强制换行，宽度 100%，覆盖内联样式 */
+ .flex-row.auto-width > input {
+   flex: 1 1 100% !important;
+   margin-left: 0 !important;
+   margin-top: 8px; /* 距离上面的按钮留出一点空隙 */
+ }
+
+ /* ★ 2. 拯救“自定义后缀”框：让下拉框、输入框、按钮各自单独占一行，宽敞明亮 */
+ #generatorContent .flex-row > div {
+   flex: 1 1 100% !important;
+ }
+
+ /* 修复其他在小屏幕上的默认排版 */
  .flex-row > * { flex: 1 1 100%; }
  .result-item { flex-direction: column; align-items: flex-start; }
 }
