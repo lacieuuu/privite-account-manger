@@ -171,10 +171,62 @@ th {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
-  word-break: break-all;
+  word-break/* ================= 表格核心排版优化 ================= */
+.table-wrapper { 
+  overflow-x: auto; 
+  margin-top: 15px; 
+  border: 1px solid var(--border); 
+  border-radius: 8px; 
 }
 
-/* ★ 5. 最后一列（操作区）：因为是按钮，居中放着更好看 */
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  min-width: 600px; 
+  font-size: 13px; 
+  table-layout: fixed; 
+}
+
+/* ★ 1. 给所有行定死绝对高度，网格线全开 */
+th, td { 
+  border: 1px solid var(--border); 
+  padding: 8px 6px; 
+  text-align: left;         
+  vertical-align: middle;   
+  height: 85px; /* 强制所有内容行的高度统一为 85px */
+}
+
+th { 
+  background: var(--primary-light); 
+  color: var(--primary-hover); 
+  position: sticky; 
+  top: 0; 
+  z-index: 10; 
+  text-align: center;       
+  height: 40px; /* 表头高度单独设低一点 */
+}
+
+/* ★ 2. 内容区：取消省略号，改为限制高度 + 内部滚动 */
+.cell-content, .action-btns {
+  height: 68px; /* 刚好匹配 td 的高度 (减去上下 padding) */
+  overflow-y: auto; /* 如果文字或按钮溢出，在格子内部滑动显示 */
+  word-break: break-all; /* 允许长链接断行 */
+  white-space: pre-wrap; /* 允许正常换行，绝不使用省略号 */
+  line-height: 1.4;
+  width: 100%;
+  text-align: left;
+}
+
+/* ★ 3. 弱化内部滚动条的视觉存在感（让界面更清爽） */
+.cell-content::-webkit-scrollbar, .action-btns::-webkit-scrollbar { 
+  width: 2px; 
+}
+.cell-content::-webkit-scrollbar-thumb, .action-btns::-webkit-scrollbar-thumb { 
+  background: rgba(0,0,0,0.15); 
+  border-radius: 2px; 
+}
+
+/* ★ 4. 最后一列（操作区）依然居中排布 */
 td:last-child {
   text-align: center;
 }
@@ -183,7 +235,7 @@ td:last-child {
   display: flex;
   flex-wrap: wrap;
   gap: 6px; 
-  align-items: center; 
+  align-content: flex-start; /* 从顶部开始排布，配合内部滑动 */
   justify-content: center; 
 }
 /* ================================================== */
